@@ -4,7 +4,7 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2016, Codrops
  * http://www.codrops.com
  */
@@ -14,7 +14,7 @@
 
 	// Helper vars and functions.
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -136,11 +136,12 @@
 		}
 	};
 
-	Phrase.prototype.animate = function() {
+	Phrase.prototype.animate = function( callback ) {
 		var self = this,
 			animOutProps = {
 				targets: this.letterElems,
 				complete: function() {
+
 					var animLettersProps = {
 						targets: self.letterElems,
 						delay: function(el, index) {
@@ -156,7 +157,7 @@
 
 						for(var j = 0, len2 = parts.length; j < len2; ++j) {
 							parts[j].showLayers();
-							
+
 							var animProps = {
 								targets: parts[j].layers,
 								strokeDashoffset: function(el) {
@@ -184,6 +185,7 @@
 							anime(animProps);
 						}
 					}
+
 				}
 			};
 
